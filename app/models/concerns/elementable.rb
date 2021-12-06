@@ -4,7 +4,7 @@ module Elementable
   included do
 
     #associations
-    has_many :log_histories, -> { order(created_at: :desc) } , as: :elementable
+    has_many :log_histories, -> { order(created_at: :desc) } , as: :elementable, dependent: :destroy
     
     #callbacks
     after_update :log_history
